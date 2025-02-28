@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Inter:wght@400;600&display=swap");
+
+/* Tailwind Directives - These must be at the top */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Links */
+nav a {
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+/* Dark Mode Toggle */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* Center Section */
+section {
+  text-align: center;
+}
+
+/* Profile Image Placeholder */
+.profile-img {
+  width: 160px;
+  height: 160px;
+  background-color: #555;
+  border-radius: 50%;
+  margin: 20px auto;
+}
