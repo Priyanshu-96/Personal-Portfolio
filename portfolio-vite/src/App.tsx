@@ -7,9 +7,6 @@ function App() {
   return (
     <>
       <div className='App'>
-        <header className = "bg-gray-900 text-white py-4 text-center text-2xl font-bold"> 
-          My Portfolio
-        </header> 
       <Home />
       <About />
       <Projects />

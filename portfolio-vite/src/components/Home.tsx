@@ -5,9 +5,9 @@ const Home = () => {
       <nav className="w-full flex justify-between items-center py-6 px-10 absolute top-0">
         <h1 className="text-lg font-semibold">PRIYANSHU</h1>
         <div className="space-x-8">
-          <a href="#about" className="text-gray-800 hover:text-black">ABOUT</a>
-          <a href="#projects" className="text-gray-800 hover:text-black">PROJECTS</a>
-          <a href="#contact" className="text-gray-800 hover:text-black">CONTACT</a>
+          <a href="#about" className="text-black hover:text-sky-500">ABOUT</a>
+          <a href="#projects" className="text-black hover:text-sky-500">PROJECTS</a>
+          <a href="#contact" className="text-black hover:text-sky-500">CONTACT</a>
         </div>
         {/*Dark Mode*/}
         <button className="w-10 h-10 bg-black rounded-full"></button>
