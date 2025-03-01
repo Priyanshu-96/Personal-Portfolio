@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Inter:wght@400;600&display=swap");
 
-/* Tailwind Directives - These must be at the top */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,8 +11,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
-/* Navbar Links */
 nav a {
   text-transform: uppercase;
   font-weight: 600;
