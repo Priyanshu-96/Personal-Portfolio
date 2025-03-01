@@ -13,22 +13,12 @@ const Home = () => {
           <a href="#contact" className="text-black dark:text-white hover:text-sky-500">CONTACT</a>
         </div>
       </nav>
-
-      {/* Dark Mode Toggle (Top Right Corner) */}
       <div className="absolute top-4 right-6">
         <DarkModeToggle />
       </div>
-
-      {/* Profile Image */}
       <div className="w-40 h-40 bg-gray-700 dark:bg-gray-300 rounded-full mt-16"></div>
-      
-      {/* Heading */}
       <h2 className="text-4xl font-cursive mt-6">Hi, I'm Priyanshu</h2>
-      
-      {/* Subheading */}
       <h3 className="text-lg font-bold tracking-wide mt-2">SOFTWARE DEVELOPER</h3>
-      
-      {/* Description */}
       <p className="text-center text-gray-600 dark:text-gray-300 max-w-lg mt-4 leading-relaxed">
         A front-end developer with a passion for building seamless digital experiences.
         With expertise in JavaScript, React, and UI/UX design, I create websites and applications
