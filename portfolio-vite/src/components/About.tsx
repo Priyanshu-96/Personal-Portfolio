@@ -1,4 +1,3 @@
-
 import SkillsMarquee from "./SkillsMarquee";
 
 const About = () => {
