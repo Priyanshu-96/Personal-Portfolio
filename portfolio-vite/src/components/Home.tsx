@@ -1,28 +1,60 @@
-import DarkModeToggle from "./DarkModeToggle";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import DarkModeToggle from "./DarkModeToggle";
+import { Menu, X } from "lucide-react"; // Icons for hamburger menu
 
 const Home = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <section className="flex flex-col items-center justify-center h-screen px-6">
+    <section className="flex flex-col items-center justify-center h-screen px-6 relative">
       
       {/* Navbar */}
-      <nav className="w-full flex justify-between items-center py-6 px-10 absolute top-0">
+      <nav className="w-full flex justify-between items-center py-6 px-10 absolute top-0 z-50">
         <h1 className="text-lg font-semibold">PRIYANSHU</h1>
-        <div className="absolute left-1/2 transform -translate-x-1/2 flex space-x-8">
-          <a href="#about" className="text-black dark:text-white hover:text-sky-500">ABOUT</a>
-          <a href="#projects" className="text-black dark:text-white hover:text-sky-500">PROJECTS</a>
-          <a href="#contact" className="text-black dark:text-white hover:text-sky-500">CONTACT</a>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
+          <a href="#about" className="text-black dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500">ABOUT</a>
+          <a href="#projects" className="text-black dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500">PROJECTS</a>
+          <a href="#contact" className="text-black dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500">CONTACT</a>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-black dark:text-white"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </nav>
 
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <motion.div
+          className="absolute top-16 left-0 w-full bg-white dark:bg-[#0a0215] shadow-md md:hidden flex flex-col items-center py-4 space-y-4"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <a href="#about" className="text-purple-400 dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500"  onClick={() => setIsMenuOpen(false)}>ABOUT</a>
+          <a href="#projects" className="text-purple-400 dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500" onClick={() => setIsMenuOpen(false)}>PROJECTS</a>
+          <a href="#contact" className="text-purple-400 dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500" onClick={() => setIsMenuOpen(false)}>CONTACT</a>
+        </motion.div>
+      )}
+
+      {/* Dark Mode Toggle */}
       <div className="absolute top-4 right-6">
         <DarkModeToggle />
       </div>
+
+      {/* Background Blur Effect */}
       <motion.div
         className="absolute w-60 h-60 bg-purple-500 blur-[90px] opacity-50"
         animate={{ scale: [1, 1.2, 1] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       />
+
       {/* SVG Avatar with Laptop */}
       <div className="relative w-56 h-56 flex items-center justify-center mt-16">
         <object 
@@ -32,8 +64,8 @@ const Home = () => {
         ></object>
       </div>
 
-      <h2 className="text-4xl font-cursive mt-6">Hi, I'm Priyanshu</h2>
-      <h3 className="text-lg font-bold tracking-wide mt-2">SOFTWARE DEVELOPER</h3>
+      <h2 className="text-4xl font-cursive mt-6 text-center">Hi, I'm Priyanshu</h2>
+      <h3 className="text-lg font-bold tracking-wide mt-2 text-center">SOFTWARE DEVELOPER</h3>
       <p className="text-center text-gray-600 dark:text-gray-300 max-w-lg mt-4 leading-relaxed">
         A front-end developer with a passion for building seamless digital experiences.
         With expertise in JavaScript, React, and UI/UX design, I create websites and applications
