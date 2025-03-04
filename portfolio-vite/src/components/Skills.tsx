@@ -24,8 +24,8 @@ const orbitVariants = {
 
 const Skills = () => {
   return (
-    <section className="relative flex flex-col items-center justify-center h-screen bg-[#0a0215] text-white">
-      {/* Centerpiece Glow */}
+    <div className="relative flex items-center justify-center w-full max-w-sm h-[300px]">
+      {/* Glowing Centerpiece */}
       <motion.div
         className="absolute w-60 h-60 bg-purple-500 blur-[90px] opacity-50"
         animate={{ scale: [1, 1.2, 1] }}
@@ -34,7 +34,7 @@ const Skills = () => {
 
       {/* Floating "Skills" Text */}
       <motion.div
-        className=" flex items-center justify-center text-2xl font-semibold z-10 shadow-lg shadow-purple-500/30"
+        className="text-xl font-semibold z-10 text-white"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
@@ -55,12 +55,12 @@ const Skills = () => {
             alt={skill.name}
             className="w-12 h-12 absolute"
             style={{
-              transform: `rotate(${index * (360 / skills.length)}deg) translate(110px) rotate(-${index * (360 / skills.length)}deg)`,
+              transform: `rotate(${index * (360 / skills.length)}deg) translate(140px) rotate(-${index * (360 / skills.length)}deg)`,
             }}
           />
         ))}
       </motion.div>
-    </section>
+    </div>
   );
 };
 
