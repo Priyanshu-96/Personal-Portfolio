@@ -1,8 +1,8 @@
-import SkillsMarquee from "./SkillsMarquee";
+import Skills from "./Skills";
 
 const About = () => {
   return (
-    <section className="bg-white text-black py-20 relative">
+    <section className="bg-[#0a0215] text-purple-400 font-semibold py-20 relative">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold mb-6">ABOUT ME</h2>
         <p className="text-slate-500 leading-relaxed ">
@@ -13,8 +13,8 @@ const About = () => {
       </div>
 
       {/* Skills Marquee */}
-      <div className="mt-10">
-        <SkillsMarquee />
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#0a0215]">
+        <Skills />
       </div>
     </section>
   );
