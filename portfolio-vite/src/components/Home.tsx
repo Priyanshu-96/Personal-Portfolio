@@ -1,4 +1,5 @@
 import DarkModeToggle from "./DarkModeToggle";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
@@ -17,7 +18,11 @@ const Home = () => {
       <div className="absolute top-4 right-6">
         <DarkModeToggle />
       </div>
-
+      <motion.div
+        className="absolute w-60 h-60 bg-purple-500 blur-[90px] opacity-50"
+        animate={{ scale: [1, 1.2, 1] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      />
       {/* SVG Avatar with Laptop */}
       <div className="relative w-56 h-56 flex items-center justify-center mt-16">
         <object 
