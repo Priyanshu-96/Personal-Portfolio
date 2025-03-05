@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
 import DarkModeToggle from "./DarkModeToggle";
 import { Menu, X } from "lucide-react"; // Icons for hamburger menu
 
@@ -55,22 +56,52 @@ const Home = () => {
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* SVG Avatar with Laptop */}
-      <div className="relative w-56 h-56 flex items-center justify-center mt-16">
+      {/* SVG Avatar with Floating Animation */}
+      <motion.div
+        className="relative w-56 h-56 flex items-center justify-center mt-16"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+      >
         <object 
           type="image/svg+xml" 
           data="/avatar-laptop.svg" 
           className="w-full h-full"
         ></object>
-      </div>
+      </motion.div>
 
-      <h2 className="text-4xl font-cursive mt-6 text-center">Hi, I'm Priyanshu</h2>
-      <h3 className="text-lg font-bold tracking-wide mt-2 text-center">SOFTWARE DEVELOPER</h3>
-      <p className="text-center text-gray-600 dark:text-gray-300 max-w-lg mt-4 leading-relaxed">
-        A front-end developer with a passion for building seamless digital experiences.
-        With expertise in JavaScript, React, and UI/UX design, I create websites and applications
-        that not only function beautifully but also tell a story.
-      </p>
+      {/* Heading with Fade-in Animation */}
+      <motion.h2
+        className="text-4xl font-cursive mt-6 text-center"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        Hi, I'm Priyanshu 👋🏼
+      </motion.h2>
+
+      {/* Typing Animation for Role */}
+      <h3 className="text-lg font-bold tracking-wide mt-2 text-center">
+        <Typewriter
+          options={{
+            strings: ["Frontend Engineer", "React Enthusiast", "UI/UX Passionate"],
+            autoStart: true,
+            loop: true,
+          }}
+        />
+      </h3>
+
+      {/* Paragraph with Fade-in Effect */}
+      <motion.p
+        className="text-center text-gray-600 dark:text-gray-300 max-w-lg mt-4 leading-relaxed"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5 }}
+      >
+        I specialize in crafting modern, user-friendly interfaces with JavaScript and React.
+        My goal is to build web applications that not only function seamlessly but also deliver an intuitive experience.
+        Let's create something amazing together!
+      </motion.p>
+
     </section>
   );
 };
