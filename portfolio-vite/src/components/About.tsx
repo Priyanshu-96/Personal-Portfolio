@@ -16,8 +16,6 @@ const About = () => {
         that not only function beautifully but also tell a story.
           </p>
         </div>
-
-        {/* Right - Skills Animation */}
         <div className="lg:w-1/2 flex justify-center mt-10 lg:mt-0">
           <Skills />
         </div>
