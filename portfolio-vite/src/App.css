@@ -11,6 +11,12 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/*For smooth scroll effect of navbar About*/
+html {
+  scroll-behavior: smooth;
+}
+
 nav a {
   text-transform: uppercase;
   font-weight: 600;

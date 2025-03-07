@@ -4,6 +4,7 @@ import Skills from "./Skills";
 const About = () => {
   return (
     <section className="bg-[#0a0215] text-white py-20 relative flex justify-center">
+       <section id="about" className="bg-[#0a0215] text-white py-20 relative flex justify-center">
       {/* Background Glow */}
       <div className="absolute w-72 h-72 bg-purple-500 blur-[120px] opacity-40 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
 
@@ -34,9 +35,15 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <p>
-              I'm a full-stack software engineer specializing in front-end development.
-              I love working at the intersection of creativity and technology.
-              My expertise lies in JavaScript, React, and UI/UX design.
+              I'm a full-stack software engineer specializing in 
+              <span className="text-purple-400 font-bold"> front-end development </span>.
+              I love working at the intersection of creativity and technology. 
+              My expertise lies in 
+              <span className ="text-yellow-300 font-bold"> Javascript </span>
+              <span className ="text-sky-400 font-bold">React </span>
+              <span className ="text-black font-bold">UI</span>
+              <span className ="text-white font-bold">/UX design</span>
+              
             </p>
             <p className="mt-3">
               I craft seamless digital experiences that not only function beautifully
@@ -55,6 +62,7 @@ const About = () => {
           </motion.div>
         </motion.div>
       </motion.div>
+      </section>
     </section>
   );
 };

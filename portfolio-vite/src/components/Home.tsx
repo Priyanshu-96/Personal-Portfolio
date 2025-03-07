@@ -16,9 +16,15 @@ const Home = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
-          <a href="#about" className="text-black dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500">ABOUT</a>
-          <a href="#projects" className="text-black dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500">PROJECTS</a>
-          <a href="#contact" className="text-black dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500">CONTACT</a>
+        <a href="#about"className="text-black text-lg font-semibold dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500"
+         onClick={(e) => {e.preventDefault(); document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
+        }}
+        >
+        ABOUT
+        </a>
+          <a href="#projects" className="text-black text-lg font-semibold dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500">PROJECTS</a>
+          <a href="#contact" className="text-black text-lg font-semibold dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500">CONTACT</a>
+          <a href="https://drive.google.com/file/d/1a43AFbB5WUy_FjvIgHU7QHw7jpXX4-F3/view?usp=sharing" className="text-black text-lg font-semibold dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500">RESUME</a>
         </div>
 
         {/* Mobile Menu Button */}
