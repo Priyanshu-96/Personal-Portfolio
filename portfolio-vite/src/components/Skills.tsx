@@ -68,49 +68,54 @@ const Skills = () => {
 
       {/* Skill Progress Modal */}
       <AnimatePresence>
-        {selectedSkill && (
-          <>
+  {selectedSkill && (
+    <motion.div
+      key="modal"
+      className="fixed inset-0 flex items-center justify-center z-50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {/* Dark Overlay */}
+      <motion.div
+        className="absolute inset-0 bg-black bg-opacity-50"
+        onClick={() => setSelectedSkill(null)}
+      />
+      {/* Modal Box */}
+      <motion.div
+        className="relative bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 flex flex-col items-center w-80"
+        initial={{ scale: 0.8 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0.8 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
+        <h2 className="text-xl font-semibold mb-3 text-center">
+          {selectedSkill.name}
+        </h2>
+        {/* Progress Bar */}
+        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-5 overflow-hidden relative">
+          <motion.div
+            key={selectedSkill.name}  // forces re-render when skill changes
+            className="h-5 bg-purple-500 rounded-full"
+            initial={{ width: '0%' }}
+            animate={{ width: `${selectedSkill.level}%` }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          />
+        </div>
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+          {selectedSkill.level}% Proficiency
+        </p>
+        <button
+          className="mt-4 bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition"
+          onClick={() => setSelectedSkill(null)}
+        >
+          Close
+        </button>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
-            {/* Dark Overlay */}
-            <motion.div
-              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedSkill(null)}
-            />
-
-            {/* Modal Box */}
-            <motion.div
-              className="fixed bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 flex flex-col items-center w-80 z-50"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-            >
-              <h2 className="text-xl font-semibold mb-3 text-center">{selectedSkill.name}</h2>
-
-              {/* Progress Bar */}
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-5 overflow-hidden relative">
-              <motion.div
-              key={selectedSkill?.name}  // This forces re-render when skill changes
-              className="h-5 bg-purple-500 rounded-full"
-              initial={{ width: 0 }}
-              animate={{ width: `${selectedSkill?.level ?? 0}%` }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              />
-              </div>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{selectedSkill.level}% Proficiency</p>
-              <button
-                className="mt-4 bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition"
-                onClick={() => setSelectedSkill(null)}
-              >
-                Close
-              </button>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
     </div>
   );
 };
