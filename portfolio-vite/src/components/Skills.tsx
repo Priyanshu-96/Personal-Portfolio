@@ -83,7 +83,7 @@ const Skills = () => {
       />
       {/* Modal Box */}
       <motion.div
-        className="relative bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 flex flex-col items-center w-80"
+        className="relative bg-gray-900 rounded-2xl shadow-lg p-6 flex flex-col items-center w-80"
         initial={{ scale: 0.8 }}
         animate={{ scale: 1 }}
         exit={{ scale: 0.8 }}
@@ -93,7 +93,7 @@ const Skills = () => {
           {selectedSkill.name}
         </h2>
         {/* Progress Bar */}
-        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-5 overflow-hidden relative">
+        <div className="w-full bg-gray-700 rounded-full h-5 overflow-hidden relative">
           <motion.div
             key={selectedSkill.name}  // forces re-render when skill changes
             className="h-5 bg-purple-500 rounded-full"
@@ -102,7 +102,7 @@ const Skills = () => {
             transition={{ duration: 1.2, ease: "easeOut" }}
           />
         </div>
-        <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+        <p className="mt-2 text-sm text-gray-300 ">
           {selectedSkill.level}% Proficiency
         </p>
         <button
