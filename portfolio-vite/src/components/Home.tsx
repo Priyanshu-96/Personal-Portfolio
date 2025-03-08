@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import DarkModeToggle from "./DarkModeToggle";
 import { Menu, X } from "lucide-react"; // Icons for hamburger menu
 
 const Home = () => {
@@ -16,20 +15,20 @@ const Home = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
-        <a href="#about"className="text-black text-lg font-semibold dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500"
+        <a href="#about"className="text-purple-400 text-lg font-semibold hover:text-sky-500"
          onClick={(e) => {e.preventDefault(); document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
         }}
         >
         ABOUT
         </a>
-          <a href="#projects" className="text-black text-lg font-semibold dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500">PROJECTS</a>
-          <a href="#contact" className="text-black text-lg font-semibold dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500">CONTACT</a>
-          <a href="https://drive.google.com/file/d/1a43AFbB5WUy_FjvIgHU7QHw7jpXX4-F3/view?usp=sharing" className="text-black text-lg font-semibold dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500">RESUME</a>
+          <a href="#projects" className="text-purple-400 text-lg font-semibold  hover:text-sky-500 ">PROJECTS</a>
+          <a href="#contact" className="text-purple-400 text-lg font-semibold  hover:text-sky-500 ">CONTACT</a>
+          <a href="https://drive.google.com/file/d/1a43AFbB5WUy_FjvIgHU7QHw7jpXX4-F3/view?usp=sharing" className="text-purple-400 text-lg font-semibold  hover:text-sky-500 ">RESUME</a>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-black dark:text-white"
+          className="md:hidden text-purple-400"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -39,21 +38,19 @@ const Home = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <motion.div
-          className="absolute top-16 left-0 w-full bg-white dark:bg-[#0a0215] shadow-md md:hidden flex flex-col items-center py-4 space-y-4"
+          className="absolute top-16 left-0 w-full bg-[#0a0215]  shadow-md md:hidden flex flex-col items-center py-4 space-y-4"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <a href="#about" className="text-purple-400 dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500"  onClick={() => setIsMenuOpen(false)}>ABOUT</a>
-          <a href="#projects" className="text-purple-400 dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500" onClick={() => setIsMenuOpen(false)}>PROJECTS</a>
-          <a href="#contact" className="text-purple-400 dark:text-purple-400 hover:text-sky-500 dark:hover:text-sky-500" onClick={() => setIsMenuOpen(false)}>CONTACT</a>
+          <a href="#about" className="text-purple-400  hover:text-sky-500 "  onClick={() => setIsMenuOpen(false)}>ABOUT</a>
+          <a href="#projects" className="text-purple-400  hover:text-sky-500 " onClick={() => setIsMenuOpen(false)}>PROJECTS</a>
+          <a href="#contact" className="text-purple-400  hover:text-sky-500 " onClick={() => setIsMenuOpen(false)}>CONTACT</a>
         </motion.div>
       )}
 
       {/* Dark Mode Toggle */}
-      <div className="absolute top-4 right-6">
-        <DarkModeToggle />
-      </div>
+     
 
       {/* Background Blur Effect */}
       <motion.div
