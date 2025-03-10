@@ -74,7 +74,7 @@ const Home = () => {
 
       {/* Heading with Fade-in Animation */}
       <motion.h2
-        className="text-4xl font-cursive mt-6 text-center"
+        className="text-4xl font-cursive mt-6 text-center "
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}

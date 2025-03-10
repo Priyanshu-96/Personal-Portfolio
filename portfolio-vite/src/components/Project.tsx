@@ -21,14 +21,12 @@ const projects = [
     tech: ["Next.js", "Tailwind CSS", "Stripe API"],
   },
 ];
-
 interface Project {
   title: string;
   year: string;
   description: string;
   tech: string[];
 }
-
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={1000} scale={1.05} transitionSpeed={500}>
