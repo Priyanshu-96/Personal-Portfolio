@@ -1,59 +1,68 @@
+import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
 const projects = [
   {
-    id: 1,
     title: "Project One",
-    description:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in classical literature.",
-    image: "", // Add project image URL
+    year: "2024",
+    description: "A web application built with React and Node.js to manage tasks efficiently.",
+    tech: ["React", "Node.js", "MongoDB"],
   },
   {
-    id: 2,
     title: "Project Two",
-    description:
-      "This book is a treatise on the theory of ethics, very popular during the Renaissance.",
-    image: "", // Add project image URL
+    year: "2023",
+    description: "An AI-powered chatbot using Python and FastAPI, capable of answering queries intelligently.",
+    tech: ["Python", "FastAPI", "OpenAI API"],
+  },
+  {
+    title: "Project Three",
+    year: "2022",
+    description: "A mobile-friendly e-commerce platform developed using Next.js and Tailwind CSS.",
+    tech: ["Next.js", "Tailwind CSS", "Stripe API"],
   },
 ];
 
-const Projects = () => {
+interface Project {
+  title: string;
+  year: string;
+  description: string;
+  tech: string[];
+}
+
+const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <section className="bg-[#0a0215] text-purple-400 font-semibold py-20">
-      <div className="container mx-auto px-6">
-        {/* Section Title */}
-        <h2 className="text-4xl font-bold text-center mb-12">PROJECTS</h2>
-
-        {/* Projects List */}
-        <div className="flex flex-col gap-12">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              className={`flex flex-col md:flex-row items-center justify-between bg-[#1a1525] p-6 md:p-10 rounded-2xl shadow-lg w-full`}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-            >
-              {/* Image / Placeholder */}
-              <div
-                className={`w-[180px] h-[120px] md:w-[250px] md:h-[150px] bg-pink-400 rounded-xl ${
-                  index % 2 === 0 ? "md:mr-8" : "md:ml-8"
-                }`}
-              ></div>
-
-              {/* Project Info */}
-              <div className="flex-1 text-center md:text-left">
-                <h3 className="text-xl md:text-2xl font-bold mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300">{project.description}</p>
-              </div>
-            </motion.div>
+    <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={1000} scale={1.05} transitionSpeed={500}>
+      <motion.div
+        className="bg-black/30 backdrop-blur-lg shadow-lg border border-purple-500 rounded-2xl p-6 m-4 max-w-lg"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+        <p className="text-purple-400 text-sm">{project.year}</p>
+        <p className="text-gray-300 mt-2">{project.description}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {project.tech.map((tech, index) => (
+            <span key={index} className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm">
+              {tech}
+            </span>
           ))}
         </div>
+      </motion.div>
+    </Tilt>
+  );
+};
+
+const ProjectsSection = () => {
+  return (
+    <section id="projects" className="text-center py-12">
+      <h2 className="text-4xl font-bold text-purple-400 mb-10">PROJECTS</h2>
+      <div className="flex flex-wrap justify-center gap-8">
+        {projects.map((project, index) => (
+          <ProjectCard key={index} project={project} />
+        ))}
       </div>
     </section>
   );
 };
 
-export default Projects;
+export default ProjectsSection;
