@@ -22,7 +22,7 @@ const Socials = () => {
       {/* CV Download */}
       <a href="https://drive.google.com/file/d/1a43AFbB5WUy_FjvIgHU7QHw7jpXX4-F3/view?usp=drive_link" download>
         <button className="flex items-center gap-2 px-4 py-2 bg-purple-700 text-white rounded-full hover:bg-purple-600 transition duration-300">
-          My CV <IoMdDownload />
+          Resume <IoMdDownload />
         </button>
       </a>
     </div>
