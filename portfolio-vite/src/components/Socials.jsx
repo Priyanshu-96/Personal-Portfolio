@@ -6,17 +6,17 @@ const Socials = () => {
     <div className="fixed top-20 right-5 flex items-center gap-4 bg-opacity-30 backdrop-blur-md px-6 py-3 rounded-full border border-gray-600 shadow-lg bg-gradient-to-r from-gray-900 to-gray-800">
       {/* GitHub */}
       <a href="https://github.com/Priyanshu-96" target="_blank" rel="noopener noreferrer">
-        <FaGithub className="text-white text-xl hover:text-gray-400 transition duration-300" />
+        <FaGithub className="text-white text-xl hover:text-purple-400 transition duration-300" />
       </a>
 
       {/* LinkedIn */}
-      <a href="www.linkedin.com/in/priyansshu" target="_blank" rel="noopener noreferrer">
-        <FaLinkedin className="text-white text-xl hover:text-gray-400 transition duration-300" />
+      <a href="https://www.linkedin.com/in/priyanshu-srivastava-419979280/" target="_blank" rel="noopener noreferrer">
+        <FaLinkedin className="text-white text-xl hover:text-purple-400 transition duration-300" />
       </a>
 
       {/* Portfolio Link */}
       <a href="https://yourportfolio.com" target="_blank" rel="noopener noreferrer">
-        <FaLink className="text-white text-xl hover:text-gray-400 transition duration-300" />
+        <FaLink className="text-white text-xl hover:text-purple-400 transition duration-300" />
       </a>
 
       {/* CV Download */}
