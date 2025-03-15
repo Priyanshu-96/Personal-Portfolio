@@ -3,22 +3,22 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Project One",
+    title: "AI Alternative Medicine Recommender",
     year: "2024",
-    description: "A web application built with React and Node.js to manage tasks efficiently.",
-    tech: ["React", "Node.js", "MongoDB"],
+    description: "A web application built with React,Node.js and Python Microservices to recommend medicines based in user symptoms.",
+    tech: ["React", "Node.js", "Python Microservices"],
   },
   {
-    title: "Project Two",
-    year: "2023",
+    title: "Crowdfunding Platform",
+    year: "2024",
     description: "An AI-powered chatbot using Python and FastAPI, capable of answering queries intelligently.",
     tech: ["Python", "FastAPI", "OpenAI API"],
   },
   {
-    title: "Project Three",
-    year: "2022",
-    description: "A mobile-friendly e-commerce platform developed using Next.js and Tailwind CSS.",
-    tech: ["Next.js", "Tailwind CSS", "Stripe API"],
+    title: "Personal Portfolio Website",
+    year: "2025",
+    description: "A mobile-friendly personla portfolio website developed using Next.js and Tailwind CSS.",
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
   },
 ];
 interface Project {
