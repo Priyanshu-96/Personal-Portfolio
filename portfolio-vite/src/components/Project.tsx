@@ -6,13 +6,13 @@ const projects = [
     title: "AI Alternative Medicine Recommender",
     year: "2024",
     description: "A web application built with React,Node.js and Python Microservices to recommend medicines based in user symptoms.",
-    tech: ["React", "Node.js", "Python Microservices"],
+    tech: ["React", "Node.js", "Python Microservices", "Rest API"],
   },
   {
     title: "Crowdfunding Platform",
     year: "2024",
     description: "An AI-powered chatbot using Python and FastAPI, capable of answering queries intelligently.",
-    tech: ["Python", "FastAPI", "OpenAI API"],
+    tech: ["HTML", "CSS", "JavaScript"],
   },
   {
     title: "Personal Portfolio Website",
