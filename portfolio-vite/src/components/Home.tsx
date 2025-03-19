@@ -11,7 +11,7 @@ const Home = () => {
       
       {/* Navbar */}
       <nav className="w-full flex justify-between items-center py-6 px-10 absolute top-0 z-50">
-        <h1 className="text-lg font-extrabold">PRIYANSHU</h1>
+        <h1 className="text-lg font-extrabold font-serif">PRIYANSHU</h1>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
