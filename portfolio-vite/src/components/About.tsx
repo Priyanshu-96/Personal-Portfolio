@@ -15,7 +15,7 @@ const About = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         {/* Title */}
-        <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-10 text-center">
+        <h2 className="text-4xl font-serif text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-10 text-center">
           ABOUT ME
         </h2>
 
