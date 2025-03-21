@@ -18,7 +18,7 @@ const projects = [
     title: "Personal Portfolio Website",
     year: "2025",
     description: "A mobile-friendly personla portfolio website developed using Next.js and Tailwind CSS.",
-    tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Typescript"],
   },
 ];
 interface Project {
