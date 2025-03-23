@@ -53,7 +53,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 const ProjectsSection = () => {
   return (
     <section id="projects" className="text-center py-12">
-      <h2 className="text-4xl font-bold text-purple-400 mb-10">PROJECTS</h2>
+      <h2 className="text-4xl font-serif text-purple-400 mb-10">PROJECTS</h2>
       <div className="flex flex-wrap justify-center gap-8">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />

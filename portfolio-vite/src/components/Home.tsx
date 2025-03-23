@@ -21,7 +21,11 @@ const Home = () => {
         >
         ABOUT
         </a>
-          <a href="#Projects" className="text-purple-400 text-sm font-serif hover:text-sky-500 ">PROJECTS</a>
+          <a href="#Projects" className="text-purple-400 text-sm font-serif hover:text-sky-500 "
+          onClick={(e) => {e.preventDefault(); document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
+        }
+        }
+          >PROJECTS</a>
           <a href="#contact" className="text-purple-400 text-sm font-serif  hover:text-sky-500 ">CONTACT</a>
           <a href="https://drive.google.com/file/d/1a43AFbB5WUy_FjvIgHU7QHw7jpXX4-F3/view?usp=sharing" className="text-purple-400 text-sm font-serif  hover:text-sky-500 ">RESUME</a>
         </div>
