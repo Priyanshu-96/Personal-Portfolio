@@ -14,7 +14,7 @@ const Home = () => {
       <ParticlesComponent />
 
       {/* Navbar */}
-      <nav className="fixed top-0 w-full bg-[#0a0215] shadow-md z-50">
+      <nav className="fixed top-0 w-full bg-transparent shadow-md z-50">
         <div className="flex justify-center items-center py-6 px-10">
           <h1 className="text-lg font-extrabold font-serif text-white">PRIYANSHU</h1>
           <div className="hidden md:flex space-x-8 ml-10">

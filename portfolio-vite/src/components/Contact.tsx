@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
+import ParticlesComponent from "./ParticlesComponent";
 
 const Contact = () => {
   return (
+    <section className="flex flex-col items-center justify-center h-screen px-6 relative">
+      <ParticlesComponent/>
+   
     <section id="contact" className="bg-[#0a0215] text-white py-20 relative flex justify-center">
+      <ParticlesComponent/>
       {/* Background Glow */}
       <div className="absolute w-72 h-72 bg-purple-500 blur-[120px] opacity-40 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
 
@@ -31,6 +36,7 @@ const Contact = () => {
           <button type="submit" className="px-6 py-2 bg-purple-500 text-white rounded-md hover:bg-pink-500 transition-colors duration-300">Send Message</button>
         </motion.form>
       </motion.div>
+    </section>
     </section>
   );
 };

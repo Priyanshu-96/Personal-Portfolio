@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import Skills from "./Skills";
+import ParticlesComponent from "../components/ParticlesComponent";
 
 const About = () => {
   return (
-    <section className="bg-[#0a0215] text-white py-20 relative flex justify-center">
+    <section className="flex flex-col items-center justify-center h-screen px-6 relative">
+      <ParticlesComponent />
        <section id="about" className="bg-[#0a0215] text-white py-20 relative flex justify-center">
       {/* Background Glow */}
       <div className="absolute w-72 h-72 bg-purple-500 blur-[120px] opacity-40 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
