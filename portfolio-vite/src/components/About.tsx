@@ -23,15 +23,14 @@ const About = () => {
 
         {/* Card Wrapper with Hover Effect */}
         <motion.div
-          className="relative bg-[#14062d] shadow-lg border border-purple-500 rounded-2xl p-8 max-w-4xl mx-auto text-center flex flex-col lg:flex-row items-center transition-all duration-300 hover:scale-105 hover:shadow-purple-500/50"
+          className="relative bg-[#14062d] shadow-lg border border-purple-500 rounded-2xl p-6 sm:p-8 max-w-xs sm:max-w-4xl mx-auto text-center flex flex-col lg:flex-row items-center transition-all duration-300 hover:scale-105 hover:shadow-purple-500/50"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          whileHover={{ scale: 1.05, boxShadow: "0px 0px 30px rgba(168, 85, 247, 0.5)" }}
         >
           {/* About Text */}
           <motion.div
-            className="lg:w-1/2 text-slate-400 leading-relaxed text-lg"
+            className="lg:w-1/2 text-slate-400 leading-relaxed text-sm sm:text-lg"
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -55,7 +54,7 @@ const About = () => {
 
           {/* Skills Section */}
           <motion.div
-            className="lg:w-1/2 flex justify-center mt-10 lg:mt-0"
+            className="lg:w-1/2 flex justify-center mt-6 lg:mt-0"
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}

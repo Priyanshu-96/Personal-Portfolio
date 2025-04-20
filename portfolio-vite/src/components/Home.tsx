@@ -15,9 +15,9 @@ const Home = () => {
 
       {/* Navbar */}
       <nav className="fixed top-0 w-full bg-transparent shadow-md z-50">
-        <div className="flex justify-center items-center py-6 px-10">
+        <div className="flex justify-between items-center py-6 px-4 md:px-10">
           <h1 className="text-lg font-extrabold font-serif text-white">PRIYANSHU</h1>
-          <div className="hidden md:flex space-x-8 ml-10">
+          <div className="hidden md:flex space-x-8">
             <a href="#about" className="relative group text-purple-400 text-sm font-serif hover:text-sky-500">
               ABOUT
               <span className="absolute left-0 bottom-0 w-0 h-1 bg-blue-500 transition-all group-hover:w-full"></span>
@@ -35,7 +35,7 @@ const Home = () => {
               <span className="absolute left-0 bottom-0 w-0 h-1 bg-blue-500 transition-all group-hover:w-full"></span>
             </a>
           </div>
-          <button className="md:hidden text-purple-400 ml-auto" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="md:hidden text-purple-400" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
@@ -57,7 +57,7 @@ const Home = () => {
 
       {/* SVG Avatar with Floating Animation */}
       <motion.div
-        className="relative w-56 h-56 flex items-center justify-center mt-16"
+        className="relative w-40 h-40 sm:w-56 sm:h-56 flex items-center justify-center mt-16"
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
@@ -70,18 +70,16 @@ const Home = () => {
 
       {/* Heading with Fade-in Animation */}
       <motion.h2
-  className="text-4xl font-cursive mt-6 text-center z-10"
-  initial={{ opacity: 0, y: -20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
-  exit={{ opacity: 1, y: 0 }}  // Prevents text from hiding
->
-  Hi, I'm Priyanshu 👋🏼
-</motion.h2>
-
+        className="text-2xl sm:text-4xl font-cursive mt-6 text-center z-10"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        Hi, I'm Priyanshu 👋🏼
+      </motion.h2>
 
       {/* Typing Animation for Role */}
-      <h3 className="text-lg font-bold tracking-wide mt-2 text-center z-10">
+      <h3 className="text-sm sm:text-lg font-bold tracking-wide mt-2 text-center z-10">
         <Typewriter
           options={{
             strings: ["Frontend Engineer", "React Enthusiast", "UI/UX Passionate"],
@@ -93,7 +91,7 @@ const Home = () => {
 
       {/* Paragraph with Fade-in Effect */}
       <motion.p
-        className="text-center text-gray-600 dark:text-gray-300 max-w-lg mt-4 leading-relaxed z-10"
+        className="text-center text-gray-600 dark:text-gray-300 max-w-xs sm:max-w-lg mt-4 leading-relaxed z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5 }}
