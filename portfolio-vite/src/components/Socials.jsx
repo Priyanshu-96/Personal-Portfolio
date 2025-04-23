@@ -3,7 +3,8 @@ import { FaGithub, FaLinkedin, FaLink, FaShareAlt } from "react-icons/fa";
 import { IoMdDownload } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Socials = ({ isMenuOpen }) => {
+const Socials = ({ isMenuOpen = false }) => {
+
   const [isMobile, setIsMobile] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [scrollY, setScrollY] = useState(0);
