@@ -1,143 +1,66 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+// src/components/Skills.tsx
+import { motion } from 'framer-motion';
+import {
+  FaNodeJs,
+  FaBootstrap,
+  FaSass,
+  FaLinux,
+  FaGitAlt,
+  FaHtml5,
+  FaCss3Alt,
+  FaJsSquare,
+  FaReact,
+  FaPython,
+  FaDatabase,
+  FaTerminal,
+} from 'react-icons/fa';
+import {// Ensure the package is updated and the export exists
+  SiFirebase,
+  SiVite,
+  SiVercel,
+  SiNetlify,
+  SiFlask,
+  SiTailwindcss,
+  SiTypescript,
+} from 'react-icons/si';
 
 const skills = [
-  { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg", level: 75 },
-  { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg", level: 85 },
-  { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg", level: 70 },
-  { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg", level: 90 },
-  { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg", level: 95 },
-  { name: "TailwindCSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original-wordmark.svg", level: 80 },
-  { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg", level: 75 },
-  { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg", level: 65 },
-  { name: "ChatGPT", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg", level: 65 },
-  { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg", level: 65 },
-  { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg", level: 80 },
-  { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg", level: 95 },
-  { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg", level: 90 },
-  { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg", level: 70 },
-  { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg", level: 80 },
-  { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg", level: 80 },
-  { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg", level: 70 },
-  { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original-wordmark.svg", level: 75 },
-  { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg", level: 70 },
-  { name: "Express.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg", level: 75 },
-  { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg", level: 70 },
-  { name: "Sass", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg", level: 85 },
-  { name: "Vite", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg", level: 75 },
-  { name: "Jest", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg", level: 65 },
-  { name: "Bash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg", level: 60 },
-  { name: "Prisma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original-wordmark.svg", level: 70 },
-  { name: "Vercel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original-wordmark.svg", level: 85 },
-  { name: "Netlify", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netlify/netlify-original-wordmark.svg", level: 70 },
-  { name: "Nginx", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg", level: 60 }
-  
+  { name: 'Node.js', icon: <FaNodeJs color="#339933" /> },
+  // { name: 'ChatGPT', icon: <SiChatgpt color="#10A37F" /> }, // Removed as it is not exported
+  { name: 'SQL', icon: <FaDatabase color="#003B57" /> },
+  { name: 'Flask', icon: <SiFlask color="#000000" /> },
+  { name: 'Bootstrap', icon: <FaBootstrap color="#7952B3" /> },
+  { name: 'Firebase', icon: <SiFirebase color="#FFCA28" /> },
+  { name: 'Vite', icon: <SiVite color="#646CFF" /> },
+  { name: 'Sass', icon: <FaSass color="#CC6699" /> },
+  { name: 'Vercel', icon: <SiVercel color="#000000" /> },
+  { name: 'Netlify', icon: <SiNetlify color="#00C7B7" /> },
+  { name: 'Bash', icon: <FaTerminal color="#4EAA25" /> },
+  { name: 'Linux', icon: <FaLinux color="#FCC624" /> },
+  { name: 'Git', icon: <FaGitAlt color="#F05032" /> },
+  { name: 'HTML5', icon: <FaHtml5 color="#E34F26" /> },
+  { name: 'CSS3', icon: <FaCss3Alt color="#1572B6" /> },
+  { name: 'JavaScript', icon: <FaJsSquare color="#F7DF1E" /> },
+  { name: 'React', icon: <FaReact color="#61DAFB" /> },
+  { name: 'Python', icon: <FaPython color="#3776AB" /> },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss color="#06B6D4" /> },
+  { name: 'TypeScript', icon: <SiTypescript color="#3178C6" /> },
+  {name: 'Express', icon: <FaNodeJs color="#000000" />}, // Assuming Express is represented by Node.js icon
 ];
 
-const orbitVariants = {
-  rotate: {
-    rotate: 360,
-    transition: {
-      repeat: Infinity,
-      duration: 12,
-      ease: "linear",
-    },
-  },
-};
-
-
 const Skills = () => {
-  const [selectedSkill, setSelectedSkill] = useState<{ name: string; level: number } | null>(null);
-
   return (
-    <div className="relative flex flex-col items-center justify-center w-full max-w-md h-[350px]">
-      {/* Glowing Centerpiece */}
-      <motion.div
-        className="absolute w-60 h-60 bg-purple-500 blur-[90px] opacity-50"
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {/* Floating "Skills" Text */}
-      <motion.div
-        className="text-xl font-semibold z-10 text-white mb-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-      >
-        Skills
-      </motion.div>
-
-      {/* Orbiting Skills */}
-      <motion.div
-        className="absolute inset-0 flex items-center justify-center"
-        variants={orbitVariants}
-        animate="rotate"
-      >
-        {skills.map((skill, index) => (
-          <motion.img
-            key={index}
-            src={skill.icon}
-            alt={skill.name}
-            className="w-12 h-12 absolute cursor-pointer hover:scale-110 transition-transform"
-            style={{
-              transform: `rotate(${index * (360 / skills.length)}deg) translate(140px) rotate(-${index * (360 / skills.length)}deg)`,
-            }}
-            onClick={() => setSelectedSkill(skill)}
-          />
-        ))}
-      </motion.div>
-
-      {/* Skill Progress Modal */}
-      <AnimatePresence>
-  {selectedSkill && (
-    <motion.div
-      key="modal"
-      className="fixed inset-0 flex items-center justify-center z-50"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      {/* Dark Overlay */}
-      <motion.div
-        className="absolute inset-0 bg-black bg-opacity-50"
-        onClick={() => setSelectedSkill(null)}
-      />
-      {/* Modal Box */}
-      <motion.div
-        className="relative bg-gray-900 rounded-2xl shadow-lg p-6 flex flex-col items-center w-80"
-        initial={{ scale: 0.8 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 0.8 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-      >
-        <h2 className="text-xl font-semibold mb-3 text-center">
-          {selectedSkill.name}
-        </h2>
-        {/* Progress Bar */}
-        <div className="w-full bg-gray-700 rounded-full h-5 overflow-hidden relative">
-          <motion.div
-            key={selectedSkill.name}  // forces re-render when skill changes
-            className="h-5 bg-purple-500 rounded-full"
-            initial={{ width: '0%' }}
-            animate={{ width: `${selectedSkill.level}%` }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-          />
-        </div>
-        <p className="mt-2 text-sm text-gray-300 ">
-          {selectedSkill.level}% Proficiency
-        </p>
-        <button
-          className="mt-4 bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition"
-          onClick={() => setSelectedSkill(null)}
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      {skills.map((skill, index) => (
+        <motion.div
+          key={index}
+          className="flex flex-col items-center p-4 bg-white bg-opacity-10 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+          whileHover={{ scale: 1.05 }}
         >
-          Close
-        </button>
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
-
+          <div className="text-4xl mb-2">{skill.icon}</div>
+          <p className="text-sm text-center text-white">{skill.name}</p>
+        </motion.div>
+      ))}
     </div>
   );
 };

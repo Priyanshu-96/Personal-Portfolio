@@ -1,69 +1,41 @@
-import { motion } from "framer-motion";
-import Skills from "./Skills";
-import ParticlesComponent from "../components/ParticlesComponent";
+// src/components/About.tsx
+import { motion } from 'framer-motion';
+import Skills from './Skills';
+import ParticlesComponent from './ParticlesComponent';
 
 const About = () => {
   return (
     <section className="flex flex-col items-center justify-center h-screen px-6 relative">
-      <ParticlesComponent />
-       <section id="about" className="bg-[#0a0215] text-white py-20 relative flex justify-center">
-      {/* Background Glow */}
-      <div className="absolute w-72 h-72 bg-purple-500 blur-[120px] opacity-40 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-
-      <motion.div
-        className="container mx-auto px-6 flex flex-col items-center"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      >
-        {/* Title */}
-        <h2 className="text-4xl font-serif text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-10 text-center">
-          ABOUT ME
-        </h2>
-
-        {/* Card Wrapper with Hover Effect */}
-        <motion.div
-          className="relative bg-[#14062d] shadow-lg border border-purple-500 rounded-2xl p-6 sm:p-8 max-w-xs sm:max-w-4xl mx-auto text-center flex flex-col lg:flex-row items-center transition-all duration-300 hover:scale-105 hover:shadow-purple-500/50"
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+      <ParticlesComponent/>
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          className="text-4xl font-bold mb-10 text-center"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          {/* About Text */}
-          <motion.div
-            className="lg:w-1/2 text-slate-400 leading-relaxed text-sm sm:text-lg"
-            initial={{ x: -50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            <p>
-              I'm a full-stack software engineer specializing in 
-              <span className="text-purple-400 font-bold"> front-end development </span>.
-              I love working at the intersection of creativity and technology. 
-              My expertise lies in 
-              <span className ="text-yellow-300 font-bold"> Javascript </span>
-              <span className ="text-sky-400 font-bold">React </span>
-              <span className ="text-black font-bold">UI</span>
-              <span className ="text-white font-bold">/UX design</span>
-              
-            </p>
-            <p className="mt-3">
-              I craft seamless digital experiences that not only function beautifully
-              but also tell a story. Let's build something amazing together! 🚀
-            </p>
-          </motion.div>
+          About Me
+        </motion.h2>
+        <motion.p
+          className="text-center mb-10 text-lg text-gray-300"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-6">
+            Hey, I’m a passionate <span className="text-purple-400 font-semibold">Full-Stack Engineer</span> focused on 
+            crafting <span className="text-yellow-300 font-semibold">interactive UI</span> and modern web experiences. 
+            With a love for clean code and intuitive design, I specialize in <span className="text-sky-400 font-semibold">React</span>, 
+            <span className="text-teal-400 font-semibold"> Tailwind CSS</span>, and <span className="text-pink-400 font-semibold">UX/UI</span> 
+            thinking that brings ideas to life.
+          </p>
 
-          {/* Skills Section */}
-          <motion.div
-            className="lg:w-1/2 flex justify-center mt-6 lg:mt-0"
-            initial={{ x: 50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            <Skills />
-          </motion.div>
-        </motion.div>
-      </motion.div>
-      </section>
+          <p className="text-slate-400 text-sm sm:text-base mb-8">
+            I'm always exploring the intersection between creativity & logic—let's build something awesome together! 🚀
+          </p>
+        </motion.p>
+        <Skills />
+      </div>
     </section>
   );
 };

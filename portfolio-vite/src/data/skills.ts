@@ -1,16 +1,16 @@
 // src/data/skills.ts
 export const skillsData = [
-    { name: "HTML", icon: "devicon-html5-plain colored" },
-    { name: "CSS", icon: "devicon-css3-plain colored" },
-    { name: "JavaScript", icon: "devicon-javascript-plain colored" },
-    { name: "React", icon: "devicon-react-original colored" },
-    { name: "Next.js", icon: "devicon-nextjs-original-wordmark colored" },
-    { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain colored" },
-    { name: "Node.js", icon: "devicon-nodejs-plain colored" },
-    { name: "Express", icon: "devicon-express-original" },
-    { name: "MongoDB", icon: "devicon-mongodb-plain colored" },
-    { name: "Git", icon: "devicon-git-plain colored" },
-    { name: "Figma", icon: "devicon-figma-plain colored" },
-    { name: "Framer Motion", icon: "devicon-react-original colored" },
-  ];
-  
+  { name: "React", logo: "/logos/react.png" },
+  { name: "Next.js", logo: "/logos/nextjs.png" },
+  { name: "Tailwind CSS", logo: "/logos/tailwind.png" },
+  { name: "Node.js", logo: "/logos/nodejs.png" },
+  { name: "Express", logo: "/logos/express.png" },
+  { name: "MongoDB", logo: "/logos/mongodb.png" },
+  { name: "Git", logo: "/logos/git.png" },
+  { name: "GitHub", logo: "/logos/github.png" },
+  { name: "Docker", logo: "/logos/docker.png" },
+  { name: "Figma", logo: "/logos/figma.png" },
+  { name: "VS Code", logo: "/logos/vscode.png" },
+  { name: "Material UI", logo: "/logos/materialui.png" },
+  // Add more skills as needed
+];
