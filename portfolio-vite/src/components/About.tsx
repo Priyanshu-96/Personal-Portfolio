@@ -8,6 +8,8 @@ const About = () => {
     <section className="flex flex-col items-center justify-center min-h-screen px-6 relative">
 
       <ParticlesComponent/>
+      <section id="about" className="bg-[#0a0215] text-white py-20 relative flex justify-center">
+
       <div className="max-w-6xl mx-auto">
         <motion.h2
           className="text-4xl font-bold mb-10 text-center"
@@ -37,6 +39,7 @@ const About = () => {
         </motion.p>
         <Skills />
       </div>
+      </section>
     </section>
   );
 };
