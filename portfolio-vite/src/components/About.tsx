@@ -5,7 +5,8 @@ import ParticlesComponent from './ParticlesComponent';
 
 const About = () => {
   return (
-    <section className="flex flex-col items-center justify-center h-screen px-6 relative">
+    <section className="flex flex-col items-center justify-center min-h-screen px-6 relative">
+
       <ParticlesComponent/>
       <div className="max-w-6xl mx-auto">
         <motion.h2

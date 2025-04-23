@@ -9,11 +9,13 @@ const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <section className="flex flex-col items-center justify-center h-screen px-6 relative">
+    <section className="flex flex-col items-center justify-center min-h-screen px-6 relative">
+
       {/* Particle Background */}
       <ParticlesComponent />
 
       {/* Navbar */}
+      
       <nav className="fixed top-0 w-full bg-transparent shadow-md z-50">
         <div className="flex justify-between items-center py-6 px-4 md:px-10">
           <h1 className="text-lg font-extrabold font-serif text-white">PRIYANSHU</h1>
