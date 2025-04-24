@@ -2,14 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaGithub, FaLinkedin, FaLink, FaShareAlt } from "react-icons/fa";
 import { IoMdDownload } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
-
 const Socials = ({ isMenuOpen = false }) => {
-
   const [isMobile, setIsMobile] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const manualCollapse = useRef(false);
-
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth <= 768;
