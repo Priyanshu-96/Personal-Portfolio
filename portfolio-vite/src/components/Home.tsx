@@ -18,7 +18,7 @@ const Home = () => {
         <div className="flex justify-between items-center py-6 px-4 md:px-10">
           <h1 className="text-lg font-extrabold font-serif text-white">PRIYANSHU</h1>
           <div className="hidden md:flex space-x-8">
-            {["about", "projects", "contact"].map((item) => (
+            {["about", "projects", "connect"].map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
@@ -42,7 +42,7 @@ const Home = () => {
             transition={{ duration: 0.3 }}
             className="md:hidden flex flex-col items-center py-6 space-y-6 bg-[#0a0215]"
           >
-            {["about", "projects", "contact"].map((item) => (
+            {["about", "projects", "connect"].map((item) => (
               <motion.a
                 key={item}
                 href={`#${item}`}
