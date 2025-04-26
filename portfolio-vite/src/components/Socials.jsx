@@ -46,7 +46,7 @@ const Socials = ({ isMenuOpen = false }) => {
   if (isMenuOpen) return null;
 
   return (
-    <div className="fixed top-20 right-5 z-40">
+    <div className="fixed top-20 right-2 z-40">
       <AnimatePresence>
         {isMobile && collapsed ? (
           // FAB button (collapsed)
@@ -57,7 +57,7 @@ const Socials = ({ isMenuOpen = false }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.5, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="bg-purple-600 text-white p-3 rounded-full shadow-md hover:bg-purple-700 transition duration-300"
+            className="bg-transparent text-purple-500 p-3 rounded-full shadow-md hover:bg-purple-700 transition duration-300"
             title="Show Social Links"
           >
             <FaShareAlt className="text-xl" />
