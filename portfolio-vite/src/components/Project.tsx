@@ -1,32 +1,41 @@
+// src/components/ProjectsSection.tsx
 import { Tilt } from "react-tilt";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+ // <-- ✅ Import this
 
 const projects = [
   {
     title: "AI Alternative Medicine Recommender",
     year: "2024",
-    description: "A web application built with React,Node.js and Python Microservices to recommend medicines based in user symptoms.",
+    description:
+      "A web application built with React, Node.js and Python Microservices to recommend medicines based on user symptoms.",
     tech: ["React", "Node.js", "Python Microservices", "Rest API"],
   },
   {
     title: "Crowdfunding Platform",
     year: "2024",
-    description: "An AI-powered chatbot using Python and FastAPI, capable of answering queries intelligently.",
+    description:
+      "An AI-powered chatbot using Python and FastAPI, capable of answering queries intelligently.",
     tech: ["HTML", "CSS", "JavaScript"],
   },
   {
     title: "Personal Portfolio Website",
     year: "2025",
-    description: "A mobile-friendly personla portfolio website developed using Next.js and Tailwind CSS.",
+    description:
+      "A mobile-friendly personal portfolio website developed using Next.js and Tailwind CSS.",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Typescript"],
   },
 ];
+
 interface Project {
   title: string;
   year: string;
   description: string;
   tech: string[];
 }
+
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={1000} scale={1.05} transitionSpeed={500}>
@@ -51,9 +60,27 @@ const ProjectCard = ({ project }: { project: Project }) => {
 };
 
 const ProjectsSection = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({ opacity: 1, y: 0 });
+    }
+  }, [inView, controls]);
+
   return (
     <section id="projects" className="text-center py-12">
-      <h2 className="text-4xl font-serif text-purple-400 mb-10">PROJECTS</h2>
+      <motion.h2
+        ref={ref}
+        initial={{ opacity: 0, y: 30 }}
+        animate={controls}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="text-4xl font-serif text-purple-400 mb-10"
+      >
+        PROJECTS
+      </motion.h2>
+
       <div className="flex flex-wrap justify-center gap-8">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />
@@ -62,5 +89,6 @@ const ProjectsSection = () => {
     </section>
   );
 };
+
 
 export default ProjectsSection;

@@ -26,10 +26,10 @@ const Home = () => {
               <a
                 key={item}
                 href={`#${item}`}
-                className="relative group text-purple-400 text-sm font-serif hover:text-sky-500"
+                className="relative group text-white text-sm font-Cambria hover:text-purple-400 "
               >
                 {item.toUpperCase()}
-                <span className="absolute left-0 bottom-0 w-0 h-1 bg-blue-500 transition-all group-hover:w-full"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-1 bg-purple-400 transition-all group-hover:w-full"></span>
               </a>
             ))}
           </div>
@@ -58,7 +58,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden flex flex-col items-center py-6 space-y-6 bg-[#0a0215]"
+            className="md:hidden flex flex-col items-center py-6 space-y-6 bg-transparent backdrop-blur-md"
           >
             {["about", "projects", "connect"].map((item) => (
               <motion.a
