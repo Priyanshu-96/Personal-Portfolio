@@ -49,7 +49,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
 const ProjectsSection = () => (
   <section id="projects" className="text-center py-12 overflow-visible relative z-10">
   <ScrollFadeIn>
-    <h2 className="text-4xl font-serif text-purple-400 mb-10">
+    <h2 className="text-4xl font-serif text-white mb-10">
       PROJECTS
     </h2>
   </ScrollFadeIn>
