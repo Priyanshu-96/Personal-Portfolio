@@ -1,11 +1,25 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import ParticlesComponent from "./ParticlesComponent";
 import confetti from "canvas-confetti";
+
+const fadeInVariant = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,40 +54,37 @@ const Contact = () => {
 
   const triggerConfetti = () => {
     confetti({
-      particleCount: 120,
-      spread: 60,
+      particleCount: 100,
+      spread: 70,
       origin: { y: 0.6 },
     });
   };
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center  overflow-hidden px-4 py-16">
-      {/* Background Particles */}
+    <section
+      id="connect"
+      ref={sectionRef}
+      className="relative w-full min-h-screen flex items-center justify-center  px-4 py-16 overflow-hidden">
       <ParticlesComponent />
-      <section id="connect" className="bg-[#0a0215] text-white py-20 relative flex justify-center">
 
-      {/* Main Content */}
       <motion.div
-        className="relative z-10 container mx-auto flex flex-col items-center will-change-transform"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        className="relative z-10 container mx-auto flex flex-col items-center"
+        variants={fadeInVariant}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
       >
-        {/* Title */}
-        <h2 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-8 text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-12">
           Let's Connect 🚀
         </h2>
 
-        {/* Form or Success Message */}
         {!submitted ? (
           <motion.form
             onSubmit={handleSubmit}
-            className="relative bg-[#14062d]/80 backdrop-blur-md border border-purple-400/40 rounded-3xl p-6 md:p-8 w-full max-w-sm flex flex-col gap-6 shadow-md transition-all duration-500"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full max-w-md bg-[#14062d]/70 backdrop-blur-xl rounded-3xl border border-purple-400/30 shadow-xl p-6 md:p-8 flex flex-col gap-6 transition-all duration-500"
+            variants={fadeInVariant}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
           >
-            {/* Input Wrapper */}
             {["name", "email", "message"].map((field, index) => (
               <div key={index} className="relative">
                 {field !== "message" ? (
@@ -82,8 +93,8 @@ const Contact = () => {
                     name={field}
                     required
                     autoComplete="off"
-                    className="peer p-3 w-full bg-transparent text-white border-b-2 border-purple-500 focus:outline-none focus:border-pink-500 transition-all placeholder-transparent"
                     placeholder={field === "name" ? "Your Name" : "Your Email"}
+                    className="peer p-3 w-full bg-transparent text-white border-b-2 border-purple-500 focus:outline-none focus:border-pink-500 transition-all placeholder-transparent"
                   />
                 ) : (
                   <textarea
@@ -91,28 +102,25 @@ const Contact = () => {
                     required
                     rows={4}
                     autoComplete="off"
-                    className="peer p-3 w-full bg-transparent text-white border-b-2 border-purple-500 focus:outline-none focus:border-pink-500 transition-all placeholder-transparent resize-none"
                     placeholder="Your Message"
+                    className="peer p-3 w-full bg-transparent text-white border-b-2 border-purple-500 focus:outline-none focus:border-pink-500 transition-all resize-none placeholder-transparent"
                   />
                 )}
-                <label
-                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400 text-sm transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-purple-600 peer-focus:top-0 peer-focus:text-xs peer-focus:text-pink-400 peer-valid:top-0 peer-valid:text-xs peer-valid:text-pink-400"
-                >
+                <label className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400 text-sm transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-purple-600 peer-focus:top-0 peer-focus:text-xs peer-focus:text-pink-400 peer-valid:top-0 peer-valid:text-xs peer-valid:text-pink-400">
                   {field === "name" ? "Your Name" : field === "email" ? "Your Email" : "Your Message"}
                 </label>
               </div>
             ))}
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
-              className={`flex items-center justify-center gap-2 px-6 py-3 mt-4 rounded-xl font-semibold text-lg bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 transition-all duration-300 ${
-                loading ? "cursor-not-allowed opacity-70" : ""
+              className={`mt-4 px-6 py-3 rounded-xl text-lg font-semibold bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 transition-all duration-300 ${
+                loading ? "opacity-70 cursor-not-allowed" : ""
               }`}
             >
               {loading ? (
-                <div className="flex gap-1">
+                <div className="flex gap-1 justify-center items-center">
                   <div className="w-2 h-2 rounded-full bg-white animate-bounce"></div>
                   <div className="w-2 h-2 rounded-full bg-white animate-bounce [animation-delay:0.2s]"></div>
                   <div className="w-2 h-2 rounded-full bg-white animate-bounce [animation-delay:0.4s]"></div>
@@ -129,11 +137,10 @@ const Contact = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            🎉 Thank you for reaching out! I'll connect with you soon.
+            🎉 Thank you for reaching out! I’ll get back to you soon.
           </motion.div>
         )}
       </motion.div>
-      </section>
     </section>
   );
 };
