@@ -1,25 +1,11 @@
-import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useState } from "react";
+import ScrollFadeIn from "./ScrollFadeIn";
 import ParticlesComponent from "./ParticlesComponent";
 import confetti from "canvas-confetti";
-
-const fadeInVariant = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -63,84 +49,73 @@ const Contact = () => {
   return (
     <section
       id="connect"
-      ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center  px-4 py-16 overflow-hidden">
+      className="relative w-full min-h-screen flex items-center justify-center px-4 py-16 overflow-hidden"
+    >
       <ParticlesComponent />
 
-      <motion.div
-        className="relative z-10 container mx-auto flex flex-col items-center"
-        variants={fadeInVariant}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-12">
-          Let's Connect 🚀
-        </h2>
+      <ScrollFadeIn>
+        <div className="relative z-10 container mx-auto flex flex-col items-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-12">
+            Let's Connect 🚀
+          </h2>
 
-        {!submitted ? (
-          <motion.form
-            onSubmit={handleSubmit}
-            className="w-full max-w-md bg-[#14062d]/70 backdrop-blur-xl rounded-3xl border border-purple-400/30 shadow-xl p-6 md:p-8 flex flex-col gap-6 transition-all duration-500"
-            variants={fadeInVariant}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          >
-            {["name", "email", "message"].map((field, index) => (
-              <div key={index} className="relative">
-                {field !== "message" ? (
-                  <input
-                    type={field === "email" ? "email" : "text"}
-                    name={field}
-                    required
-                    autoComplete="off"
-                    placeholder={field === "name" ? "Your Name" : "Your Email"}
-                    className="peer p-3 w-full bg-transparent text-white border-b-2 border-purple-500 focus:outline-none focus:border-pink-500 transition-all placeholder-transparent"
-                  />
-                ) : (
-                  <textarea
-                    name="message"
-                    required
-                    rows={4}
-                    autoComplete="off"
-                    placeholder="Your Message"
-                    className="peer p-3 w-full bg-transparent text-white border-b-2 border-purple-500 focus:outline-none focus:border-pink-500 transition-all resize-none placeholder-transparent"
-                  />
-                )}
-                <label className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400 text-sm transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-purple-600 peer-focus:top-0 peer-focus:text-xs peer-focus:text-pink-400 peer-valid:top-0 peer-valid:text-xs peer-valid:text-pink-400">
-                  {field === "name" ? "Your Name" : field === "email" ? "Your Email" : "Your Message"}
-                </label>
-              </div>
-            ))}
-
-            <button
-              type="submit"
-              disabled={loading}
-              className={`mt-4 px-6 py-3 rounded-xl text-lg font-semibold bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 transition-all duration-300 ${
-                loading ? "opacity-70 cursor-not-allowed" : ""
-              }`}
+          {!submitted ? (
+            <form
+              onSubmit={handleSubmit}
+              className="w-full max-w-md bg-[#14062d]/70 backdrop-blur-xl rounded-3xl border border-purple-400/30 shadow-xl p-6 md:p-8 flex flex-col gap-6 transition-all duration-500"
             >
-              {loading ? (
-                <div className="flex gap-1 justify-center items-center">
-                  <div className="w-2 h-2 rounded-full bg-white animate-bounce"></div>
-                  <div className="w-2 h-2 rounded-full bg-white animate-bounce [animation-delay:0.2s]"></div>
-                  <div className="w-2 h-2 rounded-full bg-white animate-bounce [animation-delay:0.4s]"></div>
+              {["name", "email", "message"].map((field, index) => (
+                <div key={index} className="relative">
+                  {field !== "message" ? (
+                    <input
+                      type={field === "email" ? "email" : "text"}
+                      name={field}
+                      required
+                      autoComplete="off"
+                      placeholder={field === "name" ? "Your Name" : "Your Email"}
+                      className="peer p-3 w-full bg-transparent text-white border-b-2 border-purple-500 focus:outline-none focus:border-pink-500 transition-all placeholder-transparent"
+                    />
+                  ) : (
+                    <textarea
+                      name="message"
+                      required
+                      rows={4}
+                      autoComplete="off"
+                      placeholder="Your Message"
+                      className="peer p-3 w-full bg-transparent text-white border-b-2 border-purple-500 focus:outline-none focus:border-pink-500 transition-all resize-none placeholder-transparent"
+                    />
+                  )}
+                  <label className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400 text-sm transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-purple-600 peer-focus:top-0 peer-focus:text-xs peer-focus:text-pink-400 peer-valid:top-0 peer-valid:text-xs peer-valid:text-pink-400">
+                    {field === "name" ? "Your Name" : field === "email" ? "Your Email" : "Your Message"}
+                  </label>
                 </div>
-              ) : (
-                "Send Message"
-              )}
-            </button>
-          </motion.form>
-        ) : (
-          <motion.div
-            className="text-purple-400 text-2xl md:text-3xl font-semibold text-center mt-10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            🎉 Thank you for reaching out! I’ll get back to you soon.
-          </motion.div>
-        )}
-      </motion.div>
+              ))}
+
+              <button
+                type="submit"
+                disabled={loading}
+                className={`mt-4 px-6 py-3 rounded-xl text-lg font-semibold bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 transition-all duration-300 ${
+                  loading ? "opacity-70 cursor-not-allowed" : ""
+                }`}
+              >
+                {loading ? (
+                  <div className="flex gap-1 justify-center items-center">
+                    <div className="w-2 h-2 rounded-full bg-white animate-bounce"></div>
+                    <div className="w-2 h-2 rounded-full bg-white animate-bounce [animation-delay:0.2s]"></div>
+                    <div className="w-2 h-2 rounded-full bg-white animate-bounce [animation-delay:0.4s]"></div>
+                  </div>
+                ) : (
+                  "Send Message"
+                )}
+              </button>
+            </form>
+          ) : (
+            <div className="text-purple-400 text-2xl md:text-3xl font-semibold text-center mt-10">
+              🎉 Thank you for reaching out! I’ll get back to you soon.
+            </div>
+          )}
+        </div>
+      </ScrollFadeIn>
     </section>
   );
 };
