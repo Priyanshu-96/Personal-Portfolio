@@ -26,7 +26,7 @@ const ScrollFadeIn = forwardRef<HTMLDivElement, { children: React.ReactNode }>(
         }}
         initial={{ opacity: 0, y: 30 }}
         animate={controls}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
       >
         {children}
       </motion.div>

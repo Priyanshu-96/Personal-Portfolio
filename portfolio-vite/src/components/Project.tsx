@@ -5,20 +5,23 @@ const projects = [
   {
     title: "AI Alternative Medicine Recommender",
     year: "2024",
-    description: "A web application built with React, Node.js and Python Microservices to recommend medicines based on user symptoms.",
-    tech: ["React", "Node.js", "Python Microservices", "Rest API"],
+    description:
+      "A web app using React, Node.js & Python Microservices to suggest medicine based on symptoms.",
+    tech: ["React", "Node.js", "Python", "REST API"],
   },
   {
     title: "Crowdfunding Platform",
     year: "2024",
-    description: "An AI-powered chatbot using Python and FastAPI, capable of answering queries intelligently.",
+    description:
+      "An AI-powered chatbot built with Python and FastAPI to handle user queries smartly.",
     tech: ["HTML", "CSS", "JavaScript"],
   },
   {
     title: "Personal Portfolio Website",
     year: "2025",
-    description: "A mobile-friendly personal portfolio website developed using Next.js and Tailwind CSS.",
-    tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Typescript"],
+    description:
+      "A mobile-first personal portfolio made with Next.js and Tailwind CSS.",
+    tech: ["Next.js", "Tailwind", "Framer Motion", "TypeScript"],
   },
 ];
 
@@ -30,14 +33,29 @@ interface Project {
 }
 
 const ProjectCard = ({ project }: { project: Project }) => (
-  <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={1000} scale={1.05} transitionSpeed={500}>
-    <div className="bg-black/30 backdrop-blur-lg shadow-lg border border-purple-500 rounded-2xl p-6 m-4 max-w-lg">
-      <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+  <Tilt
+    tiltMaxAngleX={10}
+    tiltMaxAngleY={10}
+    perspective={900}
+    scale={1.03}
+    transitionSpeed={450}
+    glareEnable={false}
+  >
+    <div
+      className="bg-black/30 backdrop-blur-md shadow-xl border border-purple-500 rounded-2xl p-6 m-4 max-w-sm sm:max-w-md transition-transform duration-300 ease-out will-change-transform"
+      style={{
+        transform: "translateZ(0)",
+      }}
+    >
+      <h3 className="text-xl font-bold text-white">{project.title}</h3>
       <p className="text-purple-400 text-sm">{project.year}</p>
-      <p className="text-gray-300 mt-2">{project.description}</p>
+      <p className="text-gray-300 mt-2 text-sm">{project.description}</p>
       <div className="mt-4 flex flex-wrap gap-2">
         {project.tech.map((tech, index) => (
-          <span key={index} className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm">
+          <span
+            key={index}
+            className="bg-purple-600 text-white px-3 py-1 rounded-full text-xs"
+          >
             {tech}
           </span>
         ))}
@@ -47,14 +65,17 @@ const ProjectCard = ({ project }: { project: Project }) => (
 );
 
 const ProjectsSection = () => (
-  <section id="projects" className="text-center py-12 overflow-visible relative z-10">
-  <ScrollFadeIn>
-    <h2 className="text-4xl font-serif text-white mb-10">
-      PROJECTS
-    </h2>
-  </ScrollFadeIn>
+  <section
+    id="projects"
+    className="text-center py-14 sm:py-20 px-4 sm:px-6 overflow-x-hidden scroll-smooth relative z-10"
+  >
+    <ScrollFadeIn>
+      <h2 className="text-4xl font-serif text-white mb-10 tracking-tight">
+        PROJECTS
+      </h2>
+    </ScrollFadeIn>
 
-    <div className="flex flex-wrap justify-center gap-8">
+    <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
       {projects.map((project, index) => (
         <ScrollFadeIn key={index}>
           <ProjectCard project={project} />

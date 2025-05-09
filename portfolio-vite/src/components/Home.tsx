@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import ParticlesComponent from "../components/ParticlesComponent";
 import Socials from "../components/Socials";
+import ScrollFadeIn from "../components/ScrollFadeIn";
+
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -82,17 +84,20 @@ const Home = () => {
         animate={{ scale: [1, 1.2, 1] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       />
-      <motion.div
-        className="relative w-40 h-40 sm:w-56 sm:h-56 flex items-center justify-center mt-16"
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <object
-          type="image/svg+xml"
-          data="/avatar-laptop.svg"
-          className="w-full h-full"
-        ></object>
-      </motion.div>
+      <ScrollFadeIn>
+  <motion.div
+    className="relative w-40 h-40 sm:w-56 sm:h-56 flex items-center justify-center mt-16"
+    animate={{ y: [0, -10, 0] }}
+    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+  >
+    <object
+      type="image/svg+xml"
+      data="/avatar-laptop.svg"
+      className="w-full h-full"
+    ></object>
+  </motion.div>
+</ScrollFadeIn>
+
       <motion.h2
         className="text-2xl sm:text-4xl font-cursive mt-6 text-center z-10"
         initial={{ opacity: 0, y: -20 }}
