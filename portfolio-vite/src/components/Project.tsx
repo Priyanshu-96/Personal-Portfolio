@@ -3,7 +3,7 @@ import ScrollFadeIn from "./ScrollFadeIn";
 
 const projects = [
   {
-    title: "AI Alternative Medicine Recommender",
+    title: "DeepCure AI",
     year: "2024",
     description:
       "A web app using React, Node.js & Python Microservices to suggest medicine based on symptoms.",
