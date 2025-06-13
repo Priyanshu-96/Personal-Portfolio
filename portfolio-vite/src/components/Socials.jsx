@@ -75,7 +75,7 @@ const Socials = ({ isMenuOpen = false }) => {
             <a href="https://github.com/Priyanshu-96" target="_blank" rel="noopener noreferrer">
               <FaGithub className="text-white text-xl hover:text-purple-400 transition duration-300" />
             </a>
-            <a href="https://www.linkedin.com/in/priyanshu-srivastava-419979280/" target="_blank" rel="noopener noreferrer">
+            <a href="www.linkedin.com/in/priyanshu-software-developer/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin className="text-white text-xl hover:text-purple-400 transition duration-300" />
             </a>
             <a href="https://priyanshu-dev-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">
