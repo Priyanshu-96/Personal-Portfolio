@@ -21,7 +21,7 @@ const About = () => {
               crafting <span className="text-yellow-300 font-semibold">interactive UI</span> and modern web experiences. 
               With a love for clean code and intuitive design, I specialize in <span className="text-sky-400 font-semibold">React</span>, 
               <span className="text-teal-400 font-semibold"> Tailwind CSS</span>, and <span className="text-pink-400 font-semibold">UX/UI</span> 
-              thinking that brings ideas to life.
+              thinking that brings ideas to life and life.
             </p>
             <p className="text-slate-400 text-sm sm:text-base mb-8 text-center">
               I'm always exploring the intersection between creativity & logic—let's build something awesome together! 🚀
