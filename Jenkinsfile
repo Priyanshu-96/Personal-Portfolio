@@ -37,7 +37,12 @@ pipeline {
                 sh 'ls -la'
             }
         }
-    }
+        stage('Workspace Info') {
+            steps {
+                sh 'pwd'
+                sh 'ls -la'
+            }
+        }
 
     post {
         success {
