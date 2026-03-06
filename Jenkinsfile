@@ -43,6 +43,7 @@ pipeline {
                 sh 'ls -la'
             }
         }
+    }
 
     post {
         success {
