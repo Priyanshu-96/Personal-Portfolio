@@ -34,7 +34,7 @@ pipeline {
 
         stage('Verify Build Folder') {
             steps {
-                sh 'ls -la dist || ls -la build'
+                sh 'ls -la'
             }
         }
         stage('Workspace Info') {
