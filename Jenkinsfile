@@ -34,11 +34,12 @@ pipeline {
 
         stage('Verify Build Folder') {
             steps {
-                sh 'ls -la'
+                sh 'ls -la dist || ls -la build'
             }
         }
         stage('Workspace Info') {
             steps {
+                echo "THIS STAGE IS RUNNING"
                 sh 'pwd'
                 sh 'ls -la'
             }
