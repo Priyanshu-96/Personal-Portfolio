@@ -2,7 +2,7 @@ import { Tilt } from "react-tilt";
 import ScrollFadeIn from "./ScrollFadeIn";
 import { FaGithub } from "react-icons/fa"; // 👈 GitHub icon
 
-const projects = [
+cons projects = [
   {
     title: "NextGen-Medicine-Recommendation",
     year: "2024",
