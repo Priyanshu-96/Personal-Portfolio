@@ -1,40 +1,61 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'node18'
-    }
-
     environment {
-        PROJECT_NAME = "Portfolio-CI"
+        REPO_URL = "https://github.com/Priyanshu-96/Personal-Portfolio.git"
     }
 
     stages {
 
-        stage('Checkout Code') {
+        stage('Clear Worspace') {
             steps {
-                echo "Cloning repository..."
-                git branch: 'main', url: 'https://github.com/Priyanshu-96/Personal-Portfolio.git'
+                sh 'rm -Rf *'
+            }
+        }
+
+        stage('Clone Repo') {
+            steps {
+                sh 'git clone $REPO_URL'
+            }
+        }
+
+        stage('Check Node Env') {
+            steps {
+                sh 'node -v'
+                sh 'npm -v'
             }
         }
 
         stage('Install Dependencies') {
             steps {
                 echo "Installing dependencies..."
-                sh 'npm install'
+                dir('Personal Portfolio') {
+                    sh 'npm install'
+                }
             }
         }
+
 
         stage('Build Project') {
             steps {
                 echo "Building project..."
-                sh 'npm run build'
+                dir('Personal-Portfolio/portfolio-vite') {
+                    sh 'npm install typescript'
+                    sh 'npm run build'
+                }
             }
         }
 
         stage('Verify Build Folder') {
             steps {
-                sh 'ls -la'
+                dir('Personal-Portfolio/portfolio-vite') {
+                    sh '''
+                    if [ ! -d "dist" ]; then
+                        echo "Build folder not found. Build failed."
+                        exit 1
+                    fi
+                    '''
+                }
             }
         }
         stage('Workspace Info') {
