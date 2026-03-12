@@ -29,7 +29,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo "Installing dependencies..."
-                dir('Personal Portfolio') {
+                dir('Personal-Portfolio') {
                     sh 'npm install'
                 }
             }
