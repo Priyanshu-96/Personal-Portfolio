@@ -7,19 +7,19 @@ pipeline {
 
     stages {
 
-        stage('Clear Worspace') {
+        stage('Clear Workspace') {
             steps {
-                sh 'rm -Rf *'
+                deleteDir()
             }
         }
 
         stage('Clone Repo') {
             steps {
-                sh 'git clone $REPO_URL'
+                git branch: 'main', url: "${REPO_URL}"
             }
         }
 
-        stage('Check Node Env') {
+        stage('Check Node Environment') {
             steps {
                 sh 'node -v'
                 sh 'npm -v'
@@ -29,18 +29,18 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo "Installing dependencies..."
-                dir('Personal-Portfolio') {
+
+                dir('portfolio-vite') {
                     sh 'npm install'
                 }
             }
         }
 
-
         stage('Build Project') {
             steps {
                 echo "Building project..."
-                dir('Personal-Portfolio/portfolio-vite') {
-                    sh 'npm install typescript'
+
+                dir('portfolio-vite') {
                     sh 'npm run build'
                 }
             }
@@ -48,16 +48,21 @@ pipeline {
 
         stage('Verify Build Folder') {
             steps {
-                dir('Personal-Portfolio/portfolio-vite') {
+                dir('portfolio-vite') {
+
                     sh '''
                     if [ ! -d "dist" ]; then
                         echo "Build folder not found. Build failed."
                         exit 1
                     fi
+
+                    echo "Build folder exists ✅"
+                    ls -la dist
                     '''
                 }
             }
         }
+
         stage('Workspace Info') {
             steps {
                 echo "THIS STAGE IS RUNNING"
@@ -68,12 +73,15 @@ pipeline {
     }
 
     post {
+
         success {
             echo "Build Successful ✅"
         }
+
         failure {
             echo "Build Failed ❌"
         }
+
         always {
             echo "Pipeline Finished"
         }
