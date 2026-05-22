@@ -11,12 +11,12 @@ pipeline {
 
         stage('Clear Workspace') {
             steps {
-                echo "Clearing workspace..."
+                echo "Cleaning workspace..."
                 deleteDir()
             }
         }
 
-        stage('Clone Repo') {
+        stage('Clone Repository') {
             steps {
 
                 echo "Cloning repository..."
@@ -26,41 +26,18 @@ pipeline {
             }
         }
 
-        stage('Check Node Environment') {
+        stage('Check Environment') {
             steps {
 
-                echo "Checking Node environment..."
-
                 sh '''
-                echo "===== NODE VERSION ====="
+                echo "Node Version:"
                 node -v
 
-                echo "===== NPM VERSION ====="
+                echo "NPM Version:"
                 npm -v
-                '''
-            }
-        }
 
-        stage('System Diagnostics Before Install') {
-            steps {
-
-                echo "Checking system resources..."
-
-                sh '''
-                echo "===== RAM INFO ====="
+                echo "Memory Status:"
                 free -h
-
-                echo "===== DISK INFO ====="
-                df -h
-
-                echo "===== CPU LOAD ====="
-                uptime
-
-                echo "===== TOP MEMORY PROCESSES ====="
-                ps aux --sort=-%mem | head -15
-
-                echo "===== TOP CPU PROCESSES ====="
-                ps aux --sort=-%cpu | head -15
                 '''
             }
         }
@@ -73,49 +50,9 @@ pipeline {
                 dir('portfolio-vite') {
 
                     sh '''
-                    set -x
-
-                    echo "===== BEFORE INSTALL ====="
-
-                    free -h
-
-                    echo "===== NODE OPTIONS ====="
-                    echo $NODE_OPTIONS
-
-                    echo "===== STARTING INSTALL ====="
-
-                    /usr/bin/time -v npm ci --verbose --no-audit --no-fund
-
-                    INSTALL_EXIT_CODE=$?
-
-                    echo "===== INSTALL FINISHED ====="
-
-                    echo "EXIT CODE: $INSTALL_EXIT_CODE"
-
-                    echo "===== AFTER INSTALL ====="
-
-                    free -h
-
-                    exit $INSTALL_EXIT_CODE
+                    npm ci --no-audit --no-fund
                     '''
                 }
-            }
-        }
-
-        stage('Check OOM Logs') {
-            steps {
-
-                echo "Checking kernel OOM logs..."
-
-                sh '''
-                echo "===== DMESG OOM LOGS ====="
-
-                dmesg -T | grep -i -E 'oom|killed process|out of memory' || true
-
-                echo "===== JOURNALCTL OOM LOGS ====="
-
-                journalctl -k | grep -i -E 'oom|killed process|out of memory' || true
-                '''
             }
         }
 
@@ -127,47 +64,26 @@ pipeline {
                 dir('portfolio-vite') {
 
                     sh '''
-                    set -x
-
                     npm run build
                     '''
                 }
             }
         }
 
-        stage('Verify Build Folder') {
+        stage('Verify Build') {
             steps {
 
                 dir('portfolio-vite') {
 
                     sh '''
-                    echo "===== VERIFYING DIST FOLDER ====="
-
                     if [ ! -d "dist" ]; then
-                        echo "Build folder not found ❌"
+                        echo "Build failed: dist folder not found ❌"
                         exit 1
                     fi
 
-                    echo "Build folder exists ✅"
-
-                    ls -la dist
+                    echo "Build successful ✅"
                     '''
                 }
-            }
-        }
-
-        stage('Workspace Info') {
-            steps {
-
-                echo "Printing workspace info..."
-
-                sh '''
-                echo "===== CURRENT DIRECTORY ====="
-                pwd
-
-                echo "===== WORKSPACE FILES ====="
-                ls -la
-                '''
             }
         }
     }
@@ -175,23 +91,18 @@ pipeline {
     post {
 
         success {
-            echo "Build Successful ✅"
+            echo "Pipeline completed successfully ✅"
         }
 
         failure {
-            echo "Build Failed ❌"
+            echo "Pipeline failed ❌"
         }
 
         always {
 
-            echo "Pipeline Finished"
-
             sh '''
-            echo "===== FINAL MEMORY STATUS ====="
-            free -h || true
-
-            echo "===== FINAL DISK STATUS ====="
-            df -h || true
+            echo "Final Memory Status:"
+            free -h
             '''
         }
     }
