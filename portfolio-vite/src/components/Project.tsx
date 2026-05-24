@@ -1,4 +1,4 @@
-import { Tilt } from "react-tilt";
+import Tilt from "react-parallax-tilt"
 import ScrollFadeIn from "./ScrollFadeIn";
 import { FaGithub } from "react-icons/fa"; // 👈 GitHub icon
 
