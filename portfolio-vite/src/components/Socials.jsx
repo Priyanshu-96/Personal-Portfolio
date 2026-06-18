@@ -82,7 +82,7 @@ const Socials = ({ isMenuOpen = false }) => {
               <FaLink className="text-white text-xl hover:text-purple-400 transition duration-300" />
             </a>
             <a
-              href="https://drive.google.com/file/d/1lMVLl5Zp3JGj5lpAnCfpY265LEH13t9r/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1yhS6oY5srZ0TtrEcSzoFFivDHPfJTBH6/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
             >
