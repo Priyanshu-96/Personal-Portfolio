@@ -121,7 +121,7 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5 }}
       >
-        I specialize in crafting modern, user-friendly interfaces with JavaScript and React. My goal is to build web applications that not only function seamlessly but also deliver an intuitive experience. Let's create something amazing together!
+        I specialize in DevOps practices, cloud infrastructure, and automation. From CI/CD pipelines to containerized deployments and infrastructure as code, I focus on building reliable, scalable, and efficient systems that accelerate software delivery. Let's create something amazing together!
       </motion.p>
     </section>
   );
