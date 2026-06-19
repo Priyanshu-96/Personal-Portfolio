@@ -82,7 +82,7 @@ const Socials = ({ isMenuOpen = false }) => {
               <FaLink className="text-white text-xl hover:text-purple-400 transition duration-300" />
             </a>
             <a
-              href="https://drive.google.com/file/d/1yhS6oY5srZ0TtrEcSzoFFivDHPfJTBH6/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1h_ip9c-UGr7qwZoYLs51fmA5Ai21hYq_/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -118,7 +118,7 @@ const Socials = ({ isMenuOpen = false }) => {
               <FaLink className="text-white text-xl hover:text-purple-400 transition duration-300" />
             </a>
             <a
-              href="https://drive.google.com/file/d/1BVFRa8lWhX8UrF5A1DfsIC3xg06S3ZUQ/view?usp=sharing"
+              href="https://drive.google.com/file/d/1h_ip9c-UGr7qwZoYLs51fmA5Ai21hYq_/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
