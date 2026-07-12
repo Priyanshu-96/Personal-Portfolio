@@ -35,6 +35,6 @@ jobs:
             docker run -d \
               --name portfolio-app \
               --restart unless-stopped \
-              -p 80:80 \
+              -p 81:81 \
               portfolio-vite
               
