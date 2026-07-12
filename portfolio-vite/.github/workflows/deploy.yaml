@@ -1,22 +1,37 @@
 name: Deploy Application
+
 on:
   push:
     branches:
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v2.1.5
         with:
-        host: ${{ secrets.SSH_HOST }}
-        username: root
-        key: ${{ secrets.SSH_KEY }}
-        script:
-          cd /root/Personal-Portfolio/portfolio-vite
-          git pull origin main
-          docker build -t portfolio-vite .
+          host: ${{ secrets.SSH_HOST }}
+          username: root
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /root/Personal-Portfolio/portfolio-vite
+
+            git pull origin main
+
+            docker build -t portfolio-vite .
+
+            docker stop portfolio-app || true
+
+            docker rm portfolio-app || true
+
+            docker run -d \
+              --name portfolio-app \
+              --restart unless-stopped \
+              -p 80:80 \
+              portfolio-vite
