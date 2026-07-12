@@ -20,9 +20,11 @@ jobs:
           username: root
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /root/Personal-Portfolio/portfolio-vite
+            cd /root/Personal-Portfolio
 
             git pull origin main
+
+            cd portfolio-vite
 
             docker build -t portfolio-vite .
 
@@ -35,3 +37,4 @@ jobs:
               --restart unless-stopped \
               -p 80:80 \
               portfolio-vite
+              
