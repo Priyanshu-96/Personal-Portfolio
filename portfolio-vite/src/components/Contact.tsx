@@ -111,7 +111,7 @@ const Contact = () => {
             </form>
           ) : (
             <div className="text-purple-400 text-2xl md:text-3xl font-semibold text-center mt-10">
-              🎉 Thank you for reaching out! I’ll get back to you sooon.
+              🎉 Thank you for reaching out! I’ll get back to you soon.
             </div>
           )}
         </div>
